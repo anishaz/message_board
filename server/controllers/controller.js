@@ -5,7 +5,13 @@ var Comment = mongoose.model('Comment');
 
 module.exports = {
   index: (req,res) => {
-    res.render('index');
+    Message.find({}, (err, messages) => {
+      if (err){
+        console.log(err);
+        return;
+      }
+      res.render('index', {messages: messages});
+    })
   },
 
   create: (req,res) => {

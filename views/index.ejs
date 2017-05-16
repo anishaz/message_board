@@ -13,5 +13,11 @@
 		  <input type="submit" value="Post Message">
     </form>
 
+    <% for(var i = 0; i < messages.length; i++){%>
+      <div style="border: 2px solid blue;">
+      <h2>Name: <%= messages[i].name %></h2>
+      <h2>Message: <%= messages[i].message %></h2>
+    <% } %>
+
   </body>
 </html>
