@@ -17,6 +17,19 @@
       <div style="border: 2px solid blue;">
       <h2>Name: <%= messages[i].name %></h2>
       <h2>Message: <%= messages[i].message %></h2>
+      <% for(var x = 0; x < messages[i].comments.length; x++) { %>
+        <div style="border: 1px solid green;">
+          <h3><%= messages[i].comments[x].name %></h3>
+          <h3><%= messages[i].comments[x].comment %></h3>
+        </div>
+      <% } %>
+    <form action='/comments/<%= messages[i]._id %>' method="POST">
+      <p>Add a Comment</p>
+      <label>Name: <input type="text" name="name"></label>
+      <label>Comment: <input type="text" name="comment"></label>
+      <input type="submit" value="Post Comment">
+    </form>
+    </div>
     <% } %>
 
   </body>
